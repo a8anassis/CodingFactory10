@@ -7,7 +7,7 @@ package gr.aueb.cf.ch2;
 public class ExpressionsApp {
 
     public static void main(String[] args) {
-        int friends = 4;
+        int bestFriends = 4;
         int pizzasOrdered = 103;
         int slicesPerPizza = 8;
 
@@ -28,11 +28,11 @@ public class ExpressionsApp {
         final int DISCOUNT = 10;    // 10% discount
 
         // Βασικές Πράξεις
-        beforeArrival = friends++;      // beforeArrival -> 4 friends -> 5
+        beforeArrival = bestFriends++;      // beforeArrival -> 4 bestFriends -> 5
 
         totalSlices = pizzasOrdered * slicesPerPizza;       // 24
-        slicesPerPerson = totalSlices / friends;            // 4
-        leftoverSlices = totalSlices % friends;             // 4
+        slicesPerPerson = totalSlices / bestFriends;            // 4
+        leftoverSlices = totalSlices % bestFriends;             // 4
 
         aliceSlices = slicesPerPerson;
         --aliceSlices;                                      // έφαγε ένα κομμάτι -> 3
@@ -41,13 +41,13 @@ public class ExpressionsApp {
         wallet += 10;                           // wallet = wallet + 10;  Μας χρωστούσε ένας φίλος
         wallet -= 5;                            // wallet = wallet - 5;  Και εμείς χρωστούσαμε 5 ευρώ
 
-        totalBill = (pizzasOrdered * pizzaCost) + (drinkCost * friends);
+        totalBill = (pizzasOrdered * pizzaCost) + (drinkCost * bestFriends);
         finalBill = totalBill - (totalBill * DISCOUNT / 100);
-        costPerPerson = finalBill / friends;
-        remainder = finalBill % friends;
+        costPerPerson = finalBill / bestFriends;
+        remainder = finalBill % bestFriends;
 
          System.out.printf("Κομμάτια: %d, Ανά άτομο: %d, Επιπλέον: %d, Alice: %d, Wallet: %d, Άτομα: %d%n",
-                 totalSlices, slicesPerPerson, leftoverSlices, aliceSlices, wallet, friends);
+                 totalSlices, slicesPerPerson, leftoverSlices, aliceSlices, wallet, bestFriends);
 
         System.out.printf("Λογαριασμός: %,d, Με έκπτωση: %,d, Ανά άτομο: %,d, Επιπλέον: %d%n",
                 totalBill, finalBill, costPerPerson, remainder);
