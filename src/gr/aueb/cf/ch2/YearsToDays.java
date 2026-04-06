@@ -14,11 +14,11 @@ public class YearsToDays {
         Scanner scanner = new Scanner(System.in);
         int inputAgeInYears = 0;
         int ageInDays = 0;
-        final int DAYS_IN_YEAR = 365;
+        final int DAYS_IN_YEAR = 366;
 
         // Input & Data Binding
         System.out.println("Παρακαλώ εισάγετε την ηλικία σας σε έτη");
-        inputAgeInYears = scanner.nextInt();
+        inputAgeInYears = scanner.nextInt();    // data binding
 
         // Λογική της εφαρμογής
         ageInDays = inputAgeInYears * DAYS_IN_YEAR;
