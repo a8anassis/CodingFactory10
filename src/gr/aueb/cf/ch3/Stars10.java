@@ -16,6 +16,8 @@ public class Stars10 {
             i++;
         }
 
+        System.out.println();
+
         while (j >= 1) {
             System.out.print("*");
             j--;
