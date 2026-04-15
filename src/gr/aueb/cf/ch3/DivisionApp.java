@@ -9,14 +9,17 @@ import java.util.Scanner;
 public class DivisionApp {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+
+        // Δήλωση και αρχικοποίηση μεταβλητών
+        Scanner in = new Scanner(System.in);
         int numerator = 0;
         int denominator = 0;
         int result = 0;
 
+        // Είσοδος δεδομένων και επεξεργασία
         while (true) {
             System.out.println("Εισάγετε τον αριθμητή: (Έξοδος με 0)");
-            numerator = scanner.nextInt();
+            numerator = in.nextInt();
 
             if (numerator == 0) {
                 System.out.println("Έξοδος από το πρόγραμμα.");
@@ -24,7 +27,7 @@ public class DivisionApp {
             }
 
             System.out.println("Εισάγετε τον παρονομαστή");
-            denominator = scanner.nextInt();
+            denominator = in.nextInt();
 
             if (denominator == 0) {
                 System.out.println("Ο παρονομαστής δεν μπορεί να είναι 0. Προσπαθήστε ξανά.");
@@ -34,6 +37,8 @@ public class DivisionApp {
             result = numerator / denominator;
             System.out.println("Το αποτέλεσμα της διαίρεσης " + numerator + " / " + denominator + " είναι: " + result);
         }
+
+        // Εκτύπωση αποτελεσμάτων
         System.out.println("Ευχαριστούμε που χρησιμοποιήσατε το πρόγραμμα.");
     }
 }
