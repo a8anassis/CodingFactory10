@@ -44,11 +44,6 @@ public class Stars {
                 System.out.print("*");
             }
             System.out.println();
-
         }
-
-
-
-
     }
 }
