@@ -47,7 +47,7 @@ public class SwitchApp {
 //                    break;
 //            }
 
-            // Arrow syntax, no break needed
+            // Arrow syntax, no break needed, new Java syntax, >=Java 14
             switch (choice) {
                 case 1 -> System.out.println("Προβολή προφίλ...");
                 case 2 -> System.out.println("Επεξεργασία προφίλ...");
