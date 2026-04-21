@@ -13,13 +13,15 @@ public class AddMethodApp {
     }
 
     public static int add(int a, int b) {
-        // Δήλωση και αρχικοποίηση
-        int sum = 0;
+//        // Δήλωση και αρχικοποίηση
+//        int sum = 0;
+//
+//        // Επεξεργασία
+//        sum = a + b;
+//
+//        // Επιστροφή αποτελέσματος
+//        return sum;
 
-        // Επεξεργασία
-        sum = a + b;
-
-        // Επιστροφή αποτελέσματος
-        return sum;
+        return a + b;
     }
 }
