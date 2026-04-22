@@ -12,7 +12,7 @@ public class ArraysAndMethods {
         int[] arr = {1, 2, 3, 4, 5};
         printArray(arr);
 
-        printArray(arr, 0, arr.length);
+//        printArray(arr, 0, arr.length);
 
     }
 
