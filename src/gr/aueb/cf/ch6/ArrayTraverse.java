@@ -10,13 +10,15 @@ public class ArrayTraverse {
         int[] scores = { 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 };
 
         // Traverse the array using a for loop
-        for (int i = 0; i <= scores.length; i++) {
-            System.out.println(scores[i]);
+        for (int i = 0; i < scores.length; i++) {
+            System.out.print(scores[i] + " ");
         }
+
+        System.out.println();
 
         // Enhanced for
         for (int score : scores) {
-            System.out.println(score);
+            System.out.print(score + " ");
         }
     }
 }
