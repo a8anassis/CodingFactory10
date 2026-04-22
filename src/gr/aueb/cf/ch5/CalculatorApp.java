@@ -43,7 +43,6 @@ public class CalculatorApp {
 
             System.out.println("Το αποτέλεσμα είναι: " + result);
         }
-
     }
 
     public static void printMenu() {
