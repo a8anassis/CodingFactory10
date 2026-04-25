@@ -47,11 +47,5 @@ public class ArraysAndMethods {
         for (int i = low; i < high; i++) {
             System.out.print(arr[i] + " ");
         }
-
     }
-
-
-
-
-
 }
