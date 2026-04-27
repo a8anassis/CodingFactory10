@@ -48,6 +48,43 @@ public class ArraysAsCollections {
         return sum;
     }
 
+    public static double avg(int[] arr) {
+        return  sum(arr) / (double) arr.length;
+    }
+
+    public static boolean isAnyEven(int[] arr) {
+        if (arr == null) return false;
+
+        for (int element : arr) {
+            if (element % 2 == 0) return true;
+        }
+        return false;
+    }
+
+    public static boolean isAllEven(int[] arr) {
+        if (arr == null) return false;
+
+        for (int element : arr) {
+            if (element % 2 != 0) return false;     // early exit
+        }
+        return true;
+    }
+
+    public static boolean isMoreThanTwoEven(int[] arr) {
+        int count = 0;
+//
+//        for (int el : arr) {
+//            if (el % 2 == 0) count++;
+//        }
+//
+//        return count > 2;
+
+        for (int element : arr) {
+            if (element % 2 == 0) count++;
+            if (count > 2) return true;     // early exit
+        }
+        return false;
+    }
 
 
 
