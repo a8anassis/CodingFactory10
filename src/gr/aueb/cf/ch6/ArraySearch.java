@@ -35,7 +35,7 @@ public class ArraySearch {
             }
         }
 
-        return -1;                              // δεν βρέθηκε
+        return -1;                              // δε βρέθηκε
     }
 
     public static int getPositionV2(int[] arr, int value) {
