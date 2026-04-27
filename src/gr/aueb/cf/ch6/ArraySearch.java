@@ -25,7 +25,6 @@ public class ArraySearch {
         }
     }
 
-
     public static int getPosition(int[] arr, int value) {
         if (arr == null) return -1;             // δεν υπάρχει πίνακας
 

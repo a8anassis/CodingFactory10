@@ -40,6 +40,7 @@ public class ArraysAndMethods {
      * @param high  the ending index (exclusive).
      */
     public static void printArray(int[] arr, int low, int high) {
+        // Sanity checks
         if (arr == null) return;
         if (low < 0 || high > arr.length) return;
         if (low > high) return;
