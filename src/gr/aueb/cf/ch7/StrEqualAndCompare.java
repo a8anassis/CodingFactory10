@@ -15,6 +15,7 @@ public class StrEqualAndCompare {
         String s3 = new String("Coding Factory");
         System.out.println(s1 == s3); // false
         System.out.println(s1.equals(s3)); // true
+        System.out.println(s1.equalsIgnoreCase(s3)); // true
 
 
         // compareTo
