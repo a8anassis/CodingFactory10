@@ -8,6 +8,6 @@ public class StrCopySubstring {
 
         // Substring
         String s3 = s1.substring(1);        // oding
-        String s4 = s1.substring(1, 3);     // od
+        String s4 = s1.substring(0, 3);     // odιι
     }
 }
