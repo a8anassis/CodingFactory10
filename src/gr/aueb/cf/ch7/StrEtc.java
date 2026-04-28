@@ -36,9 +36,7 @@ public class StrEtc {
         String lower = "coding factory";
         String upper = "CODING FACTORY";
 
-        boolean isEqualIgnoreCase = lower.toUpperCase().equals(upper.toUpperCase());  // Normalization
-
-
-
+        boolean isEqualIgnoreCase = lower.toUpperCase()
+                                         .equals(upper.toUpperCase());  // Normalization
     }
 }
