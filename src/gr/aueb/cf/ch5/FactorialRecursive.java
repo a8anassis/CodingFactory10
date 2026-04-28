@@ -16,9 +16,9 @@ public class FactorialRecursive {
     }
 
     public static int facto(int n) {
-//        if (n <= 1) return 1;
-//        return n * facto(n - 1);
+        if (n <= 1) return 1;
+        return n * facto(n - 1);
 
-        return (n <= 1) ? 1 : n * facto(n - 1);
+//        return (n <= 1) ? 1 : n * facto(n - 1);
     }
 }
