@@ -15,6 +15,8 @@ public class LetterCount {
 
     // Μέθοδος
     public static int getLetterCount(String s, char letter) {
+        if (s == null) return -1;
+
         int count = 0;
 
         for (int i = 0; i < s.length(); i++) {
