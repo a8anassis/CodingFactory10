@@ -5,7 +5,7 @@ public class StrIndexOf {
     public static void main(String[] args) {
         String s = "Coding Factory";
 
-        int positionOfo = s.indexOf('o');            //  1
+        int positionOfo = s.indexOf("oding");            //  1
         int positionOfLasto = s.lastIndexOf('o');    // 11
     }
 
