@@ -13,7 +13,12 @@ public class LetterCount {
 
     }
 
-    // Μέθοδος
+    /**
+     * Calculates how many times the letter appears in the string.
+     * @param s         the string to search in
+     * @param letter    the letter to count
+     * @return          the number of times the letter appears in the string, or -1 if the string is null
+     */
     public static int getLetterCount(String s, char letter) {
         if (s == null) return -1;
 
