@@ -28,13 +28,13 @@ public class BankApp {
      * @param amount
      * @throws Exception
      */
-    public static void deposit(double amount) throws Exception {
+    public static void deposit(double amount) throws Exception  {
         try {
             if (amount < 0) throw new Exception("Το ποσό δεν μπορεί να είναι αρνητικό");
             balance += amount;
         } catch (Exception e) {
-            System.err.println(e.getMessage());
-            throw e;        // rethrow
+            System.err.println(e.getMessage());     // logging
+            throw e;      // rethrow
         }
     }
 }

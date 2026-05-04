@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class MultipleExceptions {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         File file = new File("C:/tmp/test.txt");
         char ch = ' ';
 
@@ -15,6 +15,7 @@ public class MultipleExceptions {
             ch = (char) System.in.read();
         } catch (FileNotFoundException e) {
             System.out.println("file not found");
+            throw e;
         } catch (IOException e) {
             System.out.println("char read error");
         } catch (Exception e) {
