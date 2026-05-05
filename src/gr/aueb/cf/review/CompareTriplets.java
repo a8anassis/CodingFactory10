@@ -14,8 +14,8 @@ package gr.aueb.cf.review;
 public class CompareTriplets {
 
     public static void main(String[] args) {
-        int[] alice = {5, 6, 7};
-        int[] bob = {3, 6, 10};
+        int[] alice = { 50, 61, 79 };
+        int[] bob = { 39, 65, 100 };
         int[] points;
 
         points = compareTriplets(alice, bob);
