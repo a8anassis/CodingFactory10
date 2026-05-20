@@ -7,6 +7,9 @@ public class Main {
         Student bob = new Student();
         Student student = new Student();
 
+        Student student2 = new Student(4, "Dennis", "D.");
+        Student student3 = new Student(5, "Eva", "E.");
+
         alice.setId(1);
         alice.setFirstname("Alice");
         alice.setLastname("W.");
