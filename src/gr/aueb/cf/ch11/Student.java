@@ -6,17 +6,23 @@ package gr.aueb.cf.ch11;
  * Απλών και σύνθετων τύπων.
  */
 public class Student {
+    private static int studentCount;
     private int id;
     private String firstname;
     private String lastname;
 
+    static {
+        studentCount = 0;
+    }
+
     // default constructor
     public Student() {          // parameter-less constructor ή no-arg constructor
-
+        studentCount++;
     }
 
     // Overloaded constructor
     public Student(int id, String firstname, String lastname) {
+        studentCount++;
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -44,5 +50,9 @@ public class Student {
 
     public void setLastname(String lastname) {
         this.lastname = lastname;
+    }
+
+    public static int getStudentCount() {
+        return studentCount;
     }
 }

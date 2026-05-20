@@ -7,6 +7,8 @@ public class Main {
         Student bob = new Student();
         Student student = new Student();
 
+        System.out.println("Student instances count: " + Student.getStudentCount());
+
         Student student2 = new Student(4, "Dennis", "D.");
         Student student3 = new Student(5, "Eva", "E.");
 
