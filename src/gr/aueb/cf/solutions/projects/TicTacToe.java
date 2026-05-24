@@ -8,7 +8,7 @@ import java.util.Scanner;
  *
  * @author thanos
  */
-public class TicTac {
+public class TicTacToe {
     private static final int SIZE = 3;
     private static final int TOTAL_MOVES = SIZE * SIZE;
     private static final int EMPTY = 0;
