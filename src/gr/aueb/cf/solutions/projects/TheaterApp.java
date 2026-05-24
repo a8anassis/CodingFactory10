@@ -26,7 +26,7 @@ public class TheaterApp {
             System.out.print("Επιλογή: ");
 
             while (!scanner.hasNextInt()) {
-                scanner.next();
+                scanner.next(); // καταναλώνει το string ου έχει δοθεί
                 System.out.print("Δώσε αριθμό 1-3 (3 για έξοδο): ");
             }
             choice = scanner.nextInt();
@@ -54,26 +54,6 @@ public class TheaterApp {
                 System.out.print("Δώσε ακέραιο 1-30: ");
             }
             row = scanner.nextInt();
-
-//            System.out.print("Δώσε στήλη (A-L): ");
-//            column = Character.toUpperCase(scanner.next().charAt(0));
-//
-//            if (column < 'A' || column > 'L') {
-//                System.out.println("Μη έγκυρη στήλη. Επιτρεπτές: A-L.");
-//                continue;
-//            }
-//
-//            System.out.print("Δώσε σειρά (1-30): ");
-//            while (!scanner.hasNextInt()) {
-//                scanner.nextLine();
-//                System.out.print("Δώσε ακέραιο 1-30: ");
-//            }
-//            row = scanner.nextInt();
-//
-//            if (row < 1 || row > ROWS) {
-//                System.out.println("Μη έγκυρη σειρά. Επιτρεπτές: 1-30.");
-//                continue;
-//            }
 
             try {
                 if (choice == 1) {
