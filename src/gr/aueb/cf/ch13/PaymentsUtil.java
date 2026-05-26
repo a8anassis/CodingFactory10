@@ -23,6 +23,7 @@ public class PaymentsUtil {
 
     /**
      * Calculates the difference between two BigDecimals.
+     *
      * @param a             the first amount.
      * @param b             the second amount.
      * @param decimaPlaces  the number of decimal places to round to.
