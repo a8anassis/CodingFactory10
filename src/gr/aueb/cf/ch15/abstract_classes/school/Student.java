@@ -16,5 +16,7 @@ public class Student extends AbstractActor {
         return region;
     }
 
-    public void setRegion(String region) {}
+    public void setRegion(String region) {
+        this.region = region;
+    }
 }

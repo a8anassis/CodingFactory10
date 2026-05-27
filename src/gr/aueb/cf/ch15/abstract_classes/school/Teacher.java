@@ -16,5 +16,7 @@ public class Teacher extends AbstractActor {
         return subject;
     }
 
-    public void setSubject(String subject) {}
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
 }
