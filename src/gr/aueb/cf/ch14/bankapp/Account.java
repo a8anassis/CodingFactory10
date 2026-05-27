@@ -99,10 +99,16 @@ public class Account {
     /**
      * Withdraw a specific amount of money from the account.
      *
-     * @param amount        the amount of money to withdraw.
-     * @param ssn           the SSN of the account holder.
-     * @throws Exception    if the amount is negative, the balance is insufficient,
-     *                      or the SSN does not match.
+     * @param amount
+     *              the amount of money to withdraw.
+     * @param ssn
+     *              the SSN of the account holder.
+     * @throws NegativeAmountException
+     *              if the amount is negative.
+     * @throws InsufficientBalanceException
+     *              if the balance is insufficient.
+     * @throws SsnNotValidException
+     *              if the SSN does not match.
      */
     public void withdraw(double amount, String ssn)
             throws NegativeAmountException, InsufficientBalanceException, SsnNotValidException {
