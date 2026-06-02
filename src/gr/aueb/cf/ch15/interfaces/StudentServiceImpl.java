@@ -11,5 +11,4 @@ public class StudentServiceImpl implements ISchoolService {
     public void unregister() {
         System.out.println( "Student unregistered!");
     }
-
 }
