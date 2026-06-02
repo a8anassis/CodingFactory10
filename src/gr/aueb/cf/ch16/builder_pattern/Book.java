@@ -1,4 +1,4 @@
-package gr.aueb.cf.ch16;
+package gr.aueb.cf.ch16.builder_pattern;
 
 public class Book {
     private final long id;
