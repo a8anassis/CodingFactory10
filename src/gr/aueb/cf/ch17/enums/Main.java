@@ -11,5 +11,9 @@ public class Main {
         for (UserRole role : UserRole.values()) {
             System.out.println(role.ordinal() + " - " + role.name());
         }
+
+        for (WeekDay day : WeekDay.values()) {
+            System.out.println(day.getDay());
+        }
     }
 }
