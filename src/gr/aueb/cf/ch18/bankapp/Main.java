@@ -1,5 +1,7 @@
 package gr.aueb.cf.ch18.bankapp;
 
+import gr.aueb.cf.ch18.bankapp.dto.AccountReadOnlyDTO;
+
 import java.math.BigDecimal;
 import java.util.Scanner;
 
@@ -24,7 +26,9 @@ public class Main {
                         System.out.print("Παρακαλώ εισάγετε το αρχικό υπόλοιπο");
                         balance = new BigDecimal(scanner.nextLine().trim());
 
-                        // AccountReadOnlyDTO readOnlyDTO = accountController.createNewAccount(iban, balance);
+                        AccountReadOnlyDTO readOnlyDTO = accountController.createNewAccount(iban, balance);
+                        System.out.println("\n Ο λογαριασμός δημιουργήθηκε ή ανανεώθηκε επιτυχώς");
+                        System.out.println("IBAN: " + readOnlyDTO.iban() + "Υπόλοιπο: " + readOnlyDTO.balance() );
 
 
                     }
