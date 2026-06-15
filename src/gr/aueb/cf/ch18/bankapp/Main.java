@@ -70,15 +70,25 @@ public class Main {
 //                                accountController.getBalance();
 
                     }
+                    case "5" -> {
+                        System.out.print("Παρακαλώ εισάγετε το IBAN: ");
+                        iban = scanner.nextLine().trim();
+
+                        balance = accountController.getBalance(iban);
+
+                        System.out.println("\nΥπόλοιπο: " + balance);
+                    }
+                    case "Q", "q" -> {
+                        System.out.println("\nΈξοδος");
+                        scanner.close();
+                        return;
+                    }
                     default -> System.out.println("\nΜη έγκυρη επιλογή");
                 }
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
-
         }
-
-
     }
 
 
