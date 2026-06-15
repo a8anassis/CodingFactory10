@@ -4,6 +4,7 @@ import gr.aueb.cf.ch18.bankapp.controller.AccountController;
 import gr.aueb.cf.ch18.bankapp.dto.AccountReadOnlyDTO;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -31,6 +32,20 @@ public class Main {
                         AccountReadOnlyDTO readOnlyDTO = accountController.createNewAccount(iban, balance);
                         System.out.println("\n Ο λογαριασμός δημιουργήθηκε ή ανανεώθηκε επιτυχώς");
                         System.out.println("IBAN: " + readOnlyDTO.iban() + ", Υπόλοιπο: " + readOnlyDTO.balance() );
+                    }
+                    case "2" -> {
+                        List<AccountReadOnlyDTO> readOnlyDTOS = accountController.getAllAccounts();
+
+                        if (readOnlyDTOS.isEmpty()) {
+                            System.out.println("\nΔεν βρέθηκαν λογαριασμοί");
+                        } else {
+                            System.out.println("\n--------------------------");
+                            System.out.println("|       Λογαριασμοί      |");
+                            System.out.println("---------------------------");
+
+                            readOnlyDTOS.forEach(System.out::println);
+                            System.out.println();
+                        }
                     }
                     default -> System.out.println("\nΜη έγκυρη επιλογή");
                 }
