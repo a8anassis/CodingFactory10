@@ -30,13 +30,28 @@ public class AccountController {
 
     public void deposit(String iban, BigDecimal amount) {
 
+        // 1. Validation
+
         // Dummy Data
         if (iban.equals("GR12345")) {
-            throw new IllegalArgumentException("Invalid IBAN");
+            throw new IllegalArgumentException("Account with IBAN " + iban + " does not exist");
         }
 
         // Service Call
         // accountService.deposit(iban, amount);
+    }
+
+    public void withdraw(String iban, BigDecimal amount) {
+
+        // 1. Validation
+
+        // Dummy Data
+        if (iban.equals("GR12345")) {
+            throw new IllegalArgumentException("Account with IBAN " + iban + " does not exist");
+        }
+
+        // Service Call
+        // accountService.withdraw(iban, amount);
     }
 
     public List<AccountReadOnlyDTO> getAllAccounts() {
