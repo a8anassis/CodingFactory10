@@ -30,7 +30,7 @@ public class Main {
                         balance = new BigDecimal(scanner.nextLine().trim());
 
                         AccountReadOnlyDTO readOnlyDTO = accountController.createNewAccount(iban, balance);
-                        System.out.println("\n Ο λογαριασμός δημιουργήθηκε ή ανανεώθηκε επιτυχώς");
+                        System.out.println("\nΟ λογαριασμός δημιουργήθηκε ή ανανεώθηκε επιτυχώς");
                         System.out.println("IBAN: " + readOnlyDTO.iban() + ", Υπόλοιπο: " + readOnlyDTO.balance() );
                     }
                     case "2" -> {
@@ -41,7 +41,7 @@ public class Main {
                         } else {
                             System.out.println("\n--------------------------");
                             System.out.println("|       Λογαριασμοί      |");
-                            System.out.println("---------------------------");
+                            System.out.println("--------------------------");
 
                             readOnlyDTOS.forEach(System.out::println);
                             System.out.println();
@@ -66,7 +66,7 @@ public class Main {
 
                         accountController.withdraw(iban, withdrawAmount);
                         System.out.println("\nΕπιτυχής Ανάληψη");
-                        System.out.println("Ποσό κατάθεσης: " + withdrawAmount + ", Νέο Υπόλοιπο: "); //+
+                        System.out.println("Ποσό ανάληψης: " + withdrawAmount + ", Νέο Υπόλοιπο: "); //+
 //                                accountController.getBalance();
 
                     }
@@ -94,8 +94,8 @@ public class Main {
 
     private static void printMenu() {
         System.out.println("\n================================");
-        System.out.println("|       Υπηρεσία Bank App        |");
-        System.out.println("==================================");
+        System.out.println("|       Υπηρεσία Bank App      |");
+        System.out.println("================================");
         System.out.println("\nΥποσύστημα Τράπεζας");
         System.out.println("     1. Δημιουργία / Ενημέρωση λογαριασμού");
         System.out.println("     2. Προβολή Λογαριασμών");
