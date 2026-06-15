@@ -47,6 +47,17 @@ public class Main {
                             System.out.println();
                         }
                     }
+                    case "3" -> {
+                        System.out.print("Παρακαλώ εισάγετε το IBAN: ");
+                        iban = scanner.nextLine().trim();
+                        System.out.print("Παρακαλώ εισάγετε το ποσό κατάθεσης: ");
+                        BigDecimal depositAmount = new BigDecimal(scanner.nextLine().trim());
+
+                        accountController.deposit(iban, depositAmount);
+                        System.out.println("\nΕπιτυχής κατάθεση");
+                        System.out.println("Ποσό κατάθεσης: " + depositAmount + ", Νέο Υπόλοιπο: "); //+
+//                                accountController.getBalance();
+                    }
                     default -> System.out.println("\nΜη έγκυρη επιλογή");
                 }
             } catch (Exception e) {

@@ -28,6 +28,17 @@ public class AccountController {
         return readOnlyDTO;
     }
 
+    public void deposit(String iban, BigDecimal amount) {
+
+        // Dummy Data
+        if (iban.equals("GR12345")) {
+            throw new IllegalArgumentException("Invalid IBAN");
+        }
+
+        // Service Call
+        // accountService.deposit(iban, amount);
+    }
+
     public List<AccountReadOnlyDTO> getAllAccounts() {
 
         // Dummy Data
