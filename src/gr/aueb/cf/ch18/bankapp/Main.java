@@ -91,7 +91,6 @@ public class Main {
         }
     }
 
-
     private static void printMenu() {
         System.out.println("\n================================");
         System.out.println("|       Υπηρεσία Bank App      |");
