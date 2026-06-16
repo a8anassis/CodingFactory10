@@ -47,8 +47,10 @@ public class AccountServiceImpl implements IAccountService {
             // audit trail: who, when, what, initial balance, resulting balance
         } catch (NegativeAmountException e) {
             System.err.printf("%s. The amount %f is not allowed. \n", LocalDateTime.now(), depositDTO.amount());
+            throw e;
         } catch (AccountNotFoundException e) {
             System.err.printf("%s. Account with IBAN %s not found. \n", LocalDateTime.now(), depositDTO.iban());
+            throw e;
         }
     }
 
