@@ -12,6 +12,7 @@ import gr.aueb.cf.ch18.bankapp.dto.AccountWithdrawDTO;
 import gr.aueb.cf.ch18.bankapp.model.Account;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class AccountServiceImpl implements IAccountService {
@@ -32,8 +33,23 @@ public class AccountServiceImpl implements IAccountService {
     }
 
     @Override
-    public void deposit(AccountDepositDTO accountDepositDTO) throws AccountNotFoundException, NegativeAmountException {
-
+    public void deposit(AccountDepositDTO depositDTO)
+            throws AccountNotFoundException, NegativeAmountException {
+        try {
+            if (depositDTO.amount().compareTo(BigDecimal.ZERO) < 0) {
+                throw new NegativeAmountException("The amount must not be negative.");
+            }
+            Account account = accountDAO.findByIban(depositDTO.iban())
+                    .orElseThrow(() ->
+                            new AccountNotFoundException("Account with IBAN " + depositDTO.iban() + " not found."));
+            account.setBalance(account.getBalance().add(depositDTO.amount()));
+            accountDAO.saveOrUpdate(account);
+            // audit trail: who, when, what, initial balance, resulting balance
+        } catch (NegativeAmountException e) {
+            System.err.printf("%s. The amount %f is not allowed. \n", LocalDateTime.now(), depositDTO.amount());
+        } catch (AccountNotFoundException e) {
+            System.err.printf("%s. Account with IBAN %s not found. \n", LocalDateTime.now(), depositDTO.iban());
+        }
     }
 
     @Override
