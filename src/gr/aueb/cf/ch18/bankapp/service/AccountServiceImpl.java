@@ -25,6 +25,7 @@ public class AccountServiceImpl implements IAccountService {
 
     @Override
     public AccountReadOnlyDTO createNewAccount(AccountInsertDTO accountInsertDTO) {
+        // TODO: Validation
         Account accountToReturn;
 
         Account account = Mapper.mapToModelEntity(accountInsertDTO);
