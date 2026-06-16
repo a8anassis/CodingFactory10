@@ -55,8 +55,29 @@ public class AccountServiceImpl implements IAccountService {
     }
 
     @Override
-    public void withdraw(AccountWithdrawDTO accountWithdrawDTO) throws AccountNotFoundException, InsufficientBalanceException {
+    public void withdraw(AccountWithdrawDTO withdrawDTO)
+            throws AccountNotFoundException, InsufficientBalanceException {
+        try {
+            Account account = accountDAO.findByIban(withdrawDTO.iban())
+                    .orElseThrow(() ->
+                            new AccountNotFoundException("Account with IBAN " + withdrawDTO.iban() + " not found."));
 
+            if (account.getBalance().compareTo(withdrawDTO.amount()) < 0) {
+                throw new InsufficientBalanceException("Amount " + withdrawDTO.amount() +
+                        " for account with IBAN" + account.getIban() + " is greater than the balance");
+            }
+
+            account.setBalance(account.getBalance().subtract(withdrawDTO.amount()));
+            accountDAO.saveOrUpdate(account);
+            // audit trail: who, when, what, initial balance, resulting balance
+        } catch (InsufficientBalanceException e) {
+            System.err.printf("%s. The amount %f is greater than the balance of the account with IBAN %s \n",
+                    LocalDateTime.now(), withdrawDTO.amount(), withdrawDTO.iban());
+            throw e;
+        } catch (AccountNotFoundException e) {
+            System.err.printf("%s. Account with IBAN %s not found. \n", LocalDateTime.now(), withdrawDTO.iban());
+            throw e;
+        }
     }
 
     @Override
