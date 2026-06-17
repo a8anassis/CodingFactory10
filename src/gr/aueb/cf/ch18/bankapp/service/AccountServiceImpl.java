@@ -1,5 +1,6 @@
 package gr.aueb.cf.ch18.bankapp.service;
 
+import gr.aueb.cf.ch18.bankapp.core.exceptions.AccountAlreadyExistsException;
 import gr.aueb.cf.ch18.bankapp.core.exceptions.AccountNotFoundException;
 import gr.aueb.cf.ch18.bankapp.core.exceptions.InsufficientBalanceException;
 import gr.aueb.cf.ch18.bankapp.core.exceptions.NegativeAmountException;
@@ -24,12 +25,18 @@ public class AccountServiceImpl implements IAccountService {
 
 
     @Override
-    public AccountReadOnlyDTO createNewAccount(AccountInsertDTO accountInsertDTO) throws NegativeAmountException {
+    public AccountReadOnlyDTO createNewAccount(AccountInsertDTO accountInsertDTO)
+            throws NegativeAmountException {
         try {
             if (accountInsertDTO.balance().compareTo(BigDecimal.ZERO) < 0) {
                 throw new NegativeAmountException("The initial balance " + accountInsertDTO.balance() +
                         " must not ne negative");
             }
+
+            // if used only for creating new accounts
+//            if (accountDAO.isAccountExists(accountInsertDTO.iban())) {
+//                throw new AccountAlreadyExistsException("");
+//            }
 
             Account accountToReturn;
             Account account = Mapper.mapToModelEntity(accountInsertDTO);
