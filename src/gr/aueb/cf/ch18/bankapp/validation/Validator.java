@@ -70,4 +70,12 @@ public class Validator {
         return errors;
     }
 
+    public static Map<String, String> validateIban(String iban) {
+        Map<String , String> errors = new HashMap<>();
+
+        if (iban == null || !iban.trim().matches("GR\\d{5,10}")) {
+            errors.put("iban", "Το IBAN πρέπει να ξεκινάει με GR και να ακολουθείται από 5-10 ψηφία.");
+        }
+        return errors;
+    }
 }
