@@ -20,6 +20,8 @@ public class Validator {
      */
     private Validator() {}
 
+    // TODO: Split validation from business rules
+
     public static Map<String, String> validateInsertDTO(AccountInsertDTO insertDTO) {
         Map<String , String> errors = new HashMap<>();
 
