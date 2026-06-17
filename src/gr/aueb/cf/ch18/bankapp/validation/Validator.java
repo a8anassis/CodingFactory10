@@ -48,21 +48,25 @@ public class Validator {
         return errors;
     }
 
-    public static Map<String, String> validateWithdrawDTO(AccountWithdrawDTO withdrawDTO, BigDecimal balance) throws AccountNotFoundException {
+    public static Map<String, String> validateWithdrawDTO(AccountWithdrawDTO withdrawDTO)
+            throws AccountNotFoundException {
         Map<String , String> errors = new HashMap<>();
 
         if (withdrawDTO.iban() == null || !withdrawDTO.iban().trim().matches("GR\\d{5,10}")) {
             errors.put("iban", "Το IBAN πρέπει να ξεκινάει με GR και να ακολουθείται από 5-10 ψηφία.");
         }
 
-//        if (withdrawDTO.amount() == null || withdrawDTO.amount().compareTo(balance) > 0 ) {
-//            errors.put("amount", "Το υπόλοιπο δεν επαρκεί.");
-//        }
-
         return errors;
     }
 
-    // TODO: Check if balance is not sufficient for withdrawal
+    public static Map<String, String> validateWithdrawBalance(AccountWithdrawDTO withdrawDTO, BigDecimal balance) {
+        Map<String , String> errors = new HashMap<>();
 
+        if (withdrawDTO.amount() == null || withdrawDTO.amount().compareTo(balance) > 0 ) {
+            errors.put("amount", "Το υπόλοιπο δεν επαρκεί.");
+        }
+
+        return errors;
+    }
 
 }
