@@ -1,6 +1,9 @@
 package gr.aueb.cf.ch18.bankapp.controller;
 
+import gr.aueb.cf.ch18.bankapp.core.exceptions.AccountNotFoundException;
+import gr.aueb.cf.ch18.bankapp.core.exceptions.NegativeAmountException;
 import gr.aueb.cf.ch18.bankapp.core.exceptions.ValidationException;
+import gr.aueb.cf.ch18.bankapp.dto.AccountDepositDTO;
 import gr.aueb.cf.ch18.bankapp.dto.AccountInsertDTO;
 import gr.aueb.cf.ch18.bankapp.dto.AccountReadOnlyDTO;
 import gr.aueb.cf.ch18.bankapp.model.Account;
@@ -20,7 +23,7 @@ public class AccountController {
     }
 
     public AccountReadOnlyDTO createNewAccount(String iban, BigDecimal balance)
-            throws ValidationException {
+            throws NegativeAmountException, ValidationException {
 
         // Data binding
         AccountInsertDTO insertDTO = new AccountInsertDTO(iban, balance);
@@ -32,7 +35,7 @@ public class AccountController {
             throw new ValidationException(errors.toString());
         }
 
-       // 2. Service Call
+       // Service Call
        readOnlyDTO = accountService.createNewAccount(insertDTO);
 
         // Dummy Data
@@ -40,14 +43,25 @@ public class AccountController {
         return readOnlyDTO;
     }
 
-    public void deposit(String iban, BigDecimal amount) {
+    public void deposit(String iban, BigDecimal amount)
+            throws AccountNotFoundException, ValidationException, NegativeAmountException {
 
-        // 1. Validation
+        // Data binding
+        AccountDepositDTO depositDTO = new AccountDepositDTO(iban, amount);
+
+        // Validation
+        Map<String, String> errors = Validator.validateDepositDTO(depositDTO);
+        if (!errors.isEmpty()) {
+            throw new ValidationException(errors.toString());
+        }
+
+        // Service Call
+        accountService.deposit(depositDTO);
 
         // Dummy Data
-        if (iban.equals("GR12345")) {
-            throw new IllegalArgumentException("Account with IBAN " + iban + " does not exist");
-        }
+//        if (iban.equals("GR12345")) {
+//            throw new IllegalArgumentException("Account with IBAN " + iban + " does not exist");
+//        }
 
         // Service Call
         // accountService.deposit(iban, amount);
