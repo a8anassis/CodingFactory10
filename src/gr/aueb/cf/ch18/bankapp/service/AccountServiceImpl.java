@@ -1,6 +1,5 @@
 package gr.aueb.cf.ch18.bankapp.service;
 
-import gr.aueb.cf.ch18.bankapp.core.exceptions.AccountAlreadyExistsException;
 import gr.aueb.cf.ch18.bankapp.core.exceptions.AccountNotFoundException;
 import gr.aueb.cf.ch18.bankapp.core.exceptions.InsufficientBalanceException;
 import gr.aueb.cf.ch18.bankapp.core.exceptions.NegativeAmountException;
@@ -30,13 +29,8 @@ public class AccountServiceImpl implements IAccountService {
         try {
             if (accountInsertDTO.balance().compareTo(BigDecimal.ZERO) < 0) {
                 throw new NegativeAmountException("The initial balance " + accountInsertDTO.balance() +
-                        " must not ne negative");
+                        " must not be negative");
             }
-
-            // if used only for creating new accounts
-//            if (accountDAO.isAccountExists(accountInsertDTO.iban())) {
-//                throw new AccountAlreadyExistsException("");
-//            }
 
             Account accountToReturn;
             Account account = Mapper.mapToModelEntity(accountInsertDTO);
@@ -48,8 +42,6 @@ public class AccountServiceImpl implements IAccountService {
                     accountInsertDTO.balance());
             throw e;
         }
-
-
     }
 
     @Override
@@ -79,30 +71,21 @@ public class AccountServiceImpl implements IAccountService {
             throws AccountNotFoundException, InsufficientBalanceException {
         try {
             Account account = accountDAO.findByIban(withdrawDTO.iban())
-                    .orElseThrow(() ->
-                            new AccountNotFoundException("Account with IBAN " + withdrawDTO.iban() + " not found.")
-                    );
-
+                    .orElseThrow(() -> new AccountNotFoundException("Account with IBAN " + withdrawDTO.iban() + " not found."));
             if (account.getBalance().compareTo(withdrawDTO.amount()) < 0) {
                 throw new InsufficientBalanceException("Amount " + withdrawDTO.amount() +
                         " for account with IBAN" + account.getIban() + " is greater than the balance");
             }
-
             account.setBalance(account.getBalance().subtract(withdrawDTO.amount()));
             accountDAO.saveOrUpdate(account);
             // audit trail: who, when, what, initial balance, resulting balance
         } catch (InsufficientBalanceException e) {
-            System.err.printf(
-                    "%s. The amount %f is greater than the balance of the account with IBAN %s \n",
-                    LocalDateTime.now(),
-                    withdrawDTO.amount(),
-                    withdrawDTO.iban()
+            System.err.printf("%s. The amount %f is greater than the balance of the account with IBAN %s \n",
+                    LocalDateTime.now(), withdrawDTO.amount(), withdrawDTO.iban()
             );
             throw e;
         } catch (AccountNotFoundException e) {
-            System.err.printf(
-                    "%s. Account with IBAN %s not found. \n",
-                    LocalDateTime.now(),
+            System.err.printf("%s. Account with IBAN %s not found. \n", LocalDateTime.now(),
                     withdrawDTO.iban()
             );
             throw e;

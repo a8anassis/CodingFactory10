@@ -19,3 +19,4 @@ public class Mapper {
         return new AccountReadOnlyDTO(account.getIban(), account.getBalance());
     }
 }
+

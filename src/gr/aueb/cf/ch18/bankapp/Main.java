@@ -81,7 +81,6 @@ public class Main {
                         System.out.println("\nΕπιτυχής Ανάληψη");
                         System.out.println("Ποσό ανάληψης: " + withdrawAmount + ", Νέο Υπόλοιπο: " +
                                 accountController.getBalance(iban));
-
                     }
                     case "5" -> {
                         System.out.print("Παρακαλώ εισάγετε το IBAN: ");

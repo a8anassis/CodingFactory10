@@ -65,9 +65,6 @@ public class AccountController {
 //        if (iban.equals("GR12345")) {
 //            throw new IllegalArgumentException("Account with IBAN " + iban + " does not exist");
 //        }
-
-        // Service Call
-        // accountService.deposit(iban, amount);
     }
 
     public void withdraw(String iban, BigDecimal amount)
@@ -94,8 +91,6 @@ public class AccountController {
 //        if (iban.equals("GR12345")) {
 //            throw new IllegalArgumentException("Account with IBAN " + iban + " does not exist");
 //        }
-
-        // Service Call
     }
 
     public BigDecimal getBalance(String iban)
@@ -128,7 +123,8 @@ public class AccountController {
 //                new AccountReadOnlyDTO("GR12346", BigDecimal.valueOf(2000)),
 //                new AccountReadOnlyDTO("GR12347", BigDecimal.valueOf(3000)),
 //                new AccountReadOnlyDTO("GR12348", BigDecimal.valueOf(4000)));
-
-
     }
 }
+
+
+

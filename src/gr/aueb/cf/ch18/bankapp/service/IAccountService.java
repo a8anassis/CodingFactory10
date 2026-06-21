@@ -13,11 +13,18 @@ import java.util.List;
 
 public interface IAccountService {
 
-    // Αν κάναμε μόνο insert θα έπρεπε να ελέγχουμε το AccountAlreadyExistsException;
     AccountReadOnlyDTO createNewAccount(AccountInsertDTO accountInsertDTO)
             throws NegativeAmountException;
-    void deposit(AccountDepositDTO accountDepositDTO) throws AccountNotFoundException, NegativeAmountException;
-    void withdraw(AccountWithdrawDTO accountWithdrawDTO) throws AccountNotFoundException, InsufficientBalanceException;
+
+    void deposit(AccountDepositDTO accountDepositDTO)
+            throws AccountNotFoundException, NegativeAmountException;
+
+    void withdraw(AccountWithdrawDTO accountWithdrawDTO)
+            throws AccountNotFoundException, InsufficientBalanceException;
+
     BigDecimal getBalance(String iban) throws AccountNotFoundException;
+
     List<AccountReadOnlyDTO> getAllAccounts();
 }
+
+
