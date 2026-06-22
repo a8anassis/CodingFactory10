@@ -72,6 +72,7 @@ public class AccountServiceImpl implements IAccountService {
         try {
             Account account = accountDAO.findByIban(withdrawDTO.iban())
                     .orElseThrow(() -> new AccountNotFoundException("Account with IBAN " + withdrawDTO.iban() + " not found."));
+
             if (account.getBalance().compareTo(withdrawDTO.amount()) < 0) {
                 throw new InsufficientBalanceException("Amount " + withdrawDTO.amount() +
                         " for account with IBAN" + account.getIban() + " is greater than the balance");
