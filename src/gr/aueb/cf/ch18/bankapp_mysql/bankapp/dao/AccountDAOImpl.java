@@ -1,6 +1,6 @@
 package gr.aueb.cf.ch18.bankapp_mysql.bankapp.dao;
 
-import gr.aueb.cf.ch18.bankapp.model.Account;
+import gr.aueb.cf.ch18.bankapp_mysql.bankapp.model.Account;
 import gr.aueb.cf.ch18.bankapp_mysql.bankapp.core.DBHelper;
 
 import java.sql.Connection;

@@ -1,0 +1,16 @@
+package gr.aueb.cf.ch18.bankapp_mysql.bankapp.dto;
+
+import java.math.BigDecimal;
+
+public record AccountInsertDTO(String iban, BigDecimal balance) {
+
+//    public static AccountInsertDTO empty() {
+//        return new AccountInsertDTO("", BigDecimal.ZERO);
+//    }
+    public AccountInsertDTO() {
+        this("", BigDecimal.ZERO);
+    }
+}
+
+
+

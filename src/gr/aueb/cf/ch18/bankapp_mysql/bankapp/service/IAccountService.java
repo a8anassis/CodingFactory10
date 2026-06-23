@@ -1,12 +1,12 @@
 package gr.aueb.cf.ch18.bankapp_mysql.bankapp.service;
 
-import gr.aueb.cf.ch18.bankapp.core.exceptions.AccountNotFoundException;
-import gr.aueb.cf.ch18.bankapp.core.exceptions.InsufficientBalanceException;
-import gr.aueb.cf.ch18.bankapp.core.exceptions.NegativeAmountException;
-import gr.aueb.cf.ch18.bankapp.dto.AccountDepositDTO;
-import gr.aueb.cf.ch18.bankapp.dto.AccountInsertDTO;
-import gr.aueb.cf.ch18.bankapp.dto.AccountReadOnlyDTO;
-import gr.aueb.cf.ch18.bankapp.dto.AccountWithdrawDTO;
+import gr.aueb.cf.ch18.bankapp_mysql.bankapp.core.exceptions.AccountNotFoundException;
+import gr.aueb.cf.ch18.bankapp_mysql.bankapp.core.exceptions.InsufficientBalanceException;
+import gr.aueb.cf.ch18.bankapp_mysql.bankapp.core.exceptions.NegativeAmountException;
+import gr.aueb.cf.ch18.bankapp_mysql.bankapp.dto.AccountDepositDTO;
+import gr.aueb.cf.ch18.bankapp_mysql.bankapp.dto.AccountInsertDTO;
+import gr.aueb.cf.ch18.bankapp_mysql.bankapp.dto.AccountReadOnlyDTO;
+import gr.aueb.cf.ch18.bankapp_mysql.bankapp.dto.AccountWithdrawDTO;
 
 import java.math.BigDecimal;
 import java.util.List;

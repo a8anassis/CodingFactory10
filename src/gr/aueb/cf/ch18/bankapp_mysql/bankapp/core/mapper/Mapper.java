@@ -1,8 +1,8 @@
 package gr.aueb.cf.ch18.bankapp_mysql.bankapp.core.mapper;
 
-import gr.aueb.cf.ch18.bankapp.dto.AccountInsertDTO;
-import gr.aueb.cf.ch18.bankapp.dto.AccountReadOnlyDTO;
-import gr.aueb.cf.ch18.bankapp.model.Account;
+import gr.aueb.cf.ch18.bankapp_mysql.bankapp.dto.AccountInsertDTO;
+import gr.aueb.cf.ch18.bankapp_mysql.bankapp.dto.AccountReadOnlyDTO;
+import gr.aueb.cf.ch18.bankapp_mysql.bankapp.model.Account;
 
 public class Mapper {
 
