@@ -37,6 +37,28 @@ public class AccountDAOImpl implements IAccountDAO {
         }
     }
 
+    public Account update(Account account) {
+        String sql = "UPDATE accounts set balance = ? WHERE iban = ?";
+
+        try (Connection conn = DBHelper.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setBigDecimal(1, account.getBalance());
+            pstmt.setString(2, account.getIban());
+
+            int affectedRows = pstmt.executeUpdate();
+
+            if (affectedRows > 0) {
+                return account;
+            } else {
+                throw new SQLException("Failed to update account");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error updating account: " + e.getMessage());
+        }
+    }
+
+
     @Override
     public void remove(String iban) {
 
