@@ -1,14 +1,14 @@
 package gr.aueb.cf.ch18.bankapp_mysql.bankapp;
 
-import gr.aueb.cf.ch18.bankapp.core.exceptions.AccountNotFoundException;
-import gr.aueb.cf.ch18.bankapp.core.exceptions.InsufficientBalanceException;
-import gr.aueb.cf.ch18.bankapp.core.exceptions.NegativeAmountException;
-import gr.aueb.cf.ch18.bankapp.core.exceptions.ValidationException;
-import gr.aueb.cf.ch18.bankapp.dao.AccountDAOImpl;
-import gr.aueb.cf.ch18.bankapp.dao.IAccountDAO;
-import gr.aueb.cf.ch18.bankapp.dto.AccountReadOnlyDTO;
-import gr.aueb.cf.ch18.bankapp.service.AccountServiceImpl;
-import gr.aueb.cf.ch18.bankapp.service.IAccountService;
+import gr.aueb.cf.ch18.bankapp_mysql.bankapp.core.exceptions.AccountNotFoundException;
+import gr.aueb.cf.ch18.bankapp_mysql.bankapp.core.exceptions.InsufficientBalanceException;
+import gr.aueb.cf.ch18.bankapp_mysql.bankapp.core.exceptions.NegativeAmountException;
+import gr.aueb.cf.ch18.bankapp_mysql.bankapp.core.exceptions.ValidationException;
+import gr.aueb.cf.ch18.bankapp_mysql.bankapp.dao.AccountDAOImpl;
+import gr.aueb.cf.ch18.bankapp_mysql.bankapp.dao.IAccountDAO;
+import gr.aueb.cf.ch18.bankapp_mysql.bankapp.dto.AccountReadOnlyDTO;
+import gr.aueb.cf.ch18.bankapp_mysql.bankapp.service.AccountServiceImpl;
+import gr.aueb.cf.ch18.bankapp_mysql.bankapp.service.IAccountService;
 import gr.aueb.cf.ch18.bankapp_mysql.bankapp.controller.AccountController;
 
 import java.math.BigDecimal;
