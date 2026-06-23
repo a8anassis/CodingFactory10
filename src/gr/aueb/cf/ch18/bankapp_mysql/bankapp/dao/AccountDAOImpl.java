@@ -21,7 +21,7 @@ public class AccountDAOImpl implements IAccountDAO {
         }
     }
 
-    public Account insert(Account account) {
+    private Account insert(Account account) {
         String sql = "INSERT INTO accounts(iban, balance) VALUES (?, ?)";
 
         try (Connection conn = DBHelper.getConnection();
@@ -42,7 +42,7 @@ public class AccountDAOImpl implements IAccountDAO {
         }
     }
 
-    public Account update(Account account) {
+    private Account update(Account account) {
         String sql = "UPDATE accounts set balance = ? WHERE iban = ?";
 
         try (Connection conn = DBHelper.getConnection();
@@ -66,6 +66,16 @@ public class AccountDAOImpl implements IAccountDAO {
 
     @Override
     public void remove(String iban) {
+        String sql = "DELETE FROM accounts WHERE iban = ?";
+
+        try (Connection conn = DBHelper.getConnection();
+            PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setString(1, iban);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error deleting account: " + e.getMessage());
+        }
 
     }
 
