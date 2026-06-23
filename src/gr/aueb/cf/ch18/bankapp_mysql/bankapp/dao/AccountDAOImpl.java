@@ -81,7 +81,25 @@ public class AccountDAOImpl implements IAccountDAO {
 
     @Override
     public Optional<Account> findByIban(String iban) {
-        return Optional.empty();
+        String sql = "SELECT * FROM accounts WHERE iban = ?";
+
+        try (Connection conn = DBHelper.getConnection();
+        PreparedStatement pstmt = conn.prepareStatement(sql);) {
+            pstmt.setString(1, iban);
+
+            ResultSet rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                Account account = new Account();
+                account.setIban(rs.getString("iban"));
+                account.setBalance(rs.getBigDecimal("balance"));
+                return Optional.of(account);
+            } else {
+                return Optional.empty();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error finding account by IBAN: " + e.getMessage());
+        }
     }
 
     @Override
