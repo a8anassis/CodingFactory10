@@ -14,7 +14,11 @@ public class AccountDAOImpl implements IAccountDAO {
 
     @Override
     public Account saveOrUpdate(Account account) {
-        return null;
+        if (isAccountExists(account.getIban())) {
+            return update(account);
+        } else {
+            return insert(account);
+        }
     }
 
     public Account insert(Account account) {
