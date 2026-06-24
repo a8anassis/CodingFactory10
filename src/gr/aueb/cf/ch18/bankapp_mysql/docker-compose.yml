@@ -4,7 +4,7 @@ services:
     container_name: bankapp-dev-db
     environment:
       MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"           # Root password from .env file
-      MYSQL_DATABASE: "${MYSQL_DATABASE:-bank_db}"            # Database name from .env file or default to bank_db
+      MYSQL_DATABASE: "${MYSQL_DATABASE:-bankdb}"            # Database name from .env file or default to bank_db
       MYSQL_USER: "${MYSQL_USER:-bank_user}"                  # Database user from .env file or default to bank_user
       MYSQL_PASSWORD: "${MYSQL_PASSWORD}"                     # Database user password from .env file
     ports:
