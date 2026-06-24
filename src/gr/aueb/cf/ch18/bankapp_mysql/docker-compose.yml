@@ -5,7 +5,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"           # Root password from .env file
       MYSQL_DATABASE: "${MYSQL_DATABASE:-bankdb}"            # Database name from .env file or default to bank_db
-      MYSQL_USER: "${MYSQL_USER:-bank_user}"                  # Database user from .env file or default to bank_user
+      MYSQL_USER: "${MYSQL_USER:-bankuser}"                  # Database user from .env file or default to bank_user
       MYSQL_PASSWORD: "${MYSQL_PASSWORD}"                     # Database user password from .env file
     ports:
       - "${MYSQL_PORT:-3307}:3306"                           # Port mapping, host: container, default to 3307:3306
