@@ -13,10 +13,15 @@ public class DBHelper {
         HikariConfig config = new HikariConfig();
 
         // Config DB
-        config.setJdbcUrl("jdbc:mysql://localhost:3306/bankdbdev" +
+//        config.setJdbcUrl("jdbc:mysql://localhost:3306/bankdbdev" +
+//                "?sslMode=preferred&serverTimeZone=UTC&allowPublicKeyRetrieval=true");
+//        config.setUsername("bankuser10");
+//        config.setPassword("C0d1ngF@");
+
+        config.setJdbcUrl("jdbc:mysql://localhost:3307/bankdb" +
                 "?sslMode=preferred&serverTimeZone=UTC&allowPublicKeyRetrieval=true");
-        config.setUsername("bankuser10");
-        config.setPassword("C0d1ngF@");
+        config.setUsername("bankuser");         // MYSQL_USER
+        config.setPassword("C0d1ngF@");         // MYSQL_PASSWORD
 
         datasource = new HikariDataSource(config);
     }
