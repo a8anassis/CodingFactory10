@@ -21,4 +21,12 @@ public class RegEx {
     public static boolean isHhello(String s) {
         return s.matches("[Hh]ello");
     }
+
+    public static boolean startsWithUpperCase(String s) {
+        return s.matches("[A-Z]coding");
+    }
+
+    public static boolean startsWithLetter(String s) {
+        return s.matches("[a-zA-Z0-9_]coding");
+    }
 }
