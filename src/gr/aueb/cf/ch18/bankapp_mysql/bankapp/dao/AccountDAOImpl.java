@@ -3,10 +3,7 @@ package gr.aueb.cf.ch18.bankapp_mysql.bankapp.dao;
 import gr.aueb.cf.ch18.bankapp_mysql.bankapp.model.Account;
 import gr.aueb.cf.ch18.bankapp_mysql.bankapp.core.DBHelper;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -14,15 +11,21 @@ import java.util.Optional;
 public class AccountDAOImpl implements IAccountDAO {
 
     @Override
-    public Account saveOrUpdate(Account account) {
+    public Account saveOrUpdate(Account account) throws SQLException {
+
         if (isAccountExists(account.getIban())) {
             return update(account);
-        } else {
+        }
+
+        try {
             return insert(account);
+        } catch (SQLIntegrityConstraintViolationException e) {
+            // Concurrent insert: κάποιο άλλο νήμα πρόλαβε να εισάγει το ίδιο IBAN
+            return update(account);
         }
     }
 
-    private Account insert(Account account) {
+    private Account insert(Account account) throws SQLException {
         String sql = "INSERT INTO accounts(iban, balance) VALUES (?, ?)";
 
         try (Connection conn = DBHelper.getConnection();
@@ -31,19 +34,14 @@ public class AccountDAOImpl implements IAccountDAO {
             pstmt.setString(1, account.getIban());
             pstmt.setBigDecimal(2, account.getBalance());
 
-            int affectedRows = pstmt.executeUpdate();
-
-            if (affectedRows > 0) {
-                return account;
-            } else {
-                throw new SQLException("Failed to insert account");
-            }
+            pstmt.executeUpdate();
+            return account;
         } catch (SQLException e) {
             throw new RuntimeException("Error inserting account: " + e.getMessage());
         }
     }
 
-    private Account update(Account account) {
+    private Account update(Account account) throws SQLException {
         String sql = "UPDATE accounts set balance = ? WHERE iban = ?";
 
         try (Connection conn = DBHelper.getConnection();
@@ -53,20 +51,15 @@ public class AccountDAOImpl implements IAccountDAO {
             pstmt.setString(2, account.getIban());
 
             int affectedRows = pstmt.executeUpdate();
-
-            if (affectedRows > 0) {
-                return account;
-            } else {
-                throw new SQLException("Failed to update account");
-            }
-        } catch (SQLException e) {
+            return account;
+        }
+        catch (SQLException e) {
             throw new RuntimeException("Error updating account: " + e.getMessage());
         }
     }
 
-
     @Override
-    public void remove(String iban) {
+    public void remove(String iban) throws SQLException {
         String sql = "DELETE FROM accounts WHERE iban = ?";
 
         try (Connection conn = DBHelper.getConnection();
@@ -74,14 +67,11 @@ public class AccountDAOImpl implements IAccountDAO {
 
             pstmt.setString(1, iban);
             pstmt.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException("Error deleting account: " + e.getMessage());
         }
-
     }
 
     @Override
-    public Optional<Account> findByIban(String iban) {
+    public Optional<Account> findByIban(String iban) throws SQLException {
         String sql = "SELECT * FROM accounts WHERE iban = ?";
 
         try (Connection conn = DBHelper.getConnection();
@@ -98,13 +88,11 @@ public class AccountDAOImpl implements IAccountDAO {
             } else {
                 return Optional.empty();
             }
-        } catch (SQLException e) {
-            throw new RuntimeException("Error finding account by IBAN: " + e.getMessage());
         }
     }
 
     @Override
-    public List<Account> findAll() {
+    public List<Account> findAll() throws SQLException {
         List<Account> accounts = new ArrayList<>();
         String sql = "SELECT * FROM accounts";
 
@@ -118,15 +106,12 @@ public class AccountDAOImpl implements IAccountDAO {
                 account.setBalance(rs.getBigDecimal("balance"));
                 accounts.add(account);
             }
-
-            return accounts;
-        } catch (SQLException e) {
-            throw new RuntimeException("Error finding all accounts: " + e.getMessage());
         }
-    }
+            return accounts;
+        }
 
     @Override
-    public long count() {
+    public long count() throws SQLException {
         String sql = "SELECT COUNT(*) FROM accounts";
 
         try (Connection conn = DBHelper.getConnection();
@@ -138,13 +123,11 @@ public class AccountDAOImpl implements IAccountDAO {
             }
 
             return 0;
-        } catch (SQLException e) {
-            throw new RuntimeException("Error counting accounts: " + e.getMessage());
         }
     }
 
     @Override
-    public boolean isAccountExists(String iban) {
+    public boolean isAccountExists(String iban) throws SQLException {
         String sql = "SELECT 1 FROM accounts WHERE iban = ?";
 
         try (Connection conn = DBHelper.getConnection();
@@ -153,8 +136,7 @@ public class AccountDAOImpl implements IAccountDAO {
             pstmt.setString(1, iban);
             ResultSet rs = pstmt.executeQuery();
             return rs.next();
-        } catch (SQLException e) {
-            throw new RuntimeException("Error checking account existence: " + e.getMessage());
         }
     }
 }
+

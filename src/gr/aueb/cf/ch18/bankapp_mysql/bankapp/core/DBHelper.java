@@ -13,15 +13,10 @@ public class DBHelper {
         HikariConfig config = new HikariConfig();
 
         // Config DB
-//        config.setJdbcUrl("jdbc:mysql://localhost:3306/bankdbdev" +
-//                "?sslMode=preferred&serverTimeZone=UTC&allowPublicKeyRetrieval=true");
-//        config.setUsername("bankuser10");
-//        config.setPassword("C0d1ngF@");
-
-        config.setJdbcUrl("jdbc:mysql://localhost:3307/bankdb" +
+        config.setJdbcUrl("jdbc:mysql://localhost:3306/bankdbdev" +
                 "?sslMode=preferred&serverTimeZone=UTC&allowPublicKeyRetrieval=true");
-        config.setUsername("bankuser");              // MYSQL_USER
-            config.setPassword("C0d1ngF@");         // MYSQL_PASSWORD
+        config.setUsername("bank_user");
+        config.setPassword("C0d1ngF@");
 
         datasource = new HikariDataSource(config);
     }
@@ -32,3 +27,8 @@ public class DBHelper {
         return datasource.getConnection();
     }
 }
+
+//        config.setJdbcUrl("jdbc:mysql://localhost:3307/bankdb" +
+//                "?sslMode=preferred&serverTimeZone=UTC&allowPublicKeyRetrieval=true");
+//        config.setUsername("bankuser");              // MYSQL_USER
+//            config.setPassword("C0d1ngF@");         // MYSQL_PASSWORD
