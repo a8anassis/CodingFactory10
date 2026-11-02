@@ -4,7 +4,7 @@ package gr.aueb.cf.ch2;
  * Expressions Demo
  * Pizza App Calculator.
  */
-public class ExpressionsApp {
+public class ExpressionsApp2 {
 
     public static void main(String[] args) {
         int bestFriends = 4;

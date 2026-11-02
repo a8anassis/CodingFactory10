@@ -4,7 +4,7 @@ package gr.aueb.cf.ch2;
  * Εμφανίζει MIN, MAX και εύρος τιμών των
  * βασικών τύπων ακεραίων.
  */
-public class IntApp {
+public class IntApp1 {
 
     public static void main(String[] args) {
         System.out.printf("int, MIN = %d, MAX = %d, SIZE = %d\n", Integer.MIN_VALUE, Integer.MAX_VALUE, Integer.SIZE);

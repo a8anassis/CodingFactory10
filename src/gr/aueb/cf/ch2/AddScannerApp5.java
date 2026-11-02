@@ -6,7 +6,7 @@ import java.util.Scanner;
  * Διαβάζει δύο ακεραίους από το stdin (keyboard)
  * και υπολογίζει το άθροισμα και το εκτυπώνει.
  */
-public class AddScannerApp {
+public class AddScannerApp5 {
 
     public static void main(String[] args) {
 
