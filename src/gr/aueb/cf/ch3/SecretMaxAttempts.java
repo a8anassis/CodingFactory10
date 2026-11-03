@@ -11,17 +11,17 @@ public class SecretMaxAttempts {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         final int SECRET_PIN = 1234;
-        final int MAX_ATTEMPTS = 3;
+//        final int MAX_ATTEMPTS = 3;
         int attempts = 1;
         int inputPin = 0;
 
         while (true) {
-            if (attempts > MAX_ATTEMPTS) {
-                System.out.println("Έχετε ξεπεράσει το όριο προσπαθειών. Χάσατε!");
-                break;
-            }
+//            if (attempts > MAX_ATTEMPTS) {
+//                System.out.println("Έχετε ξεπεράσει το όριο προσπαθειών. Χάσατε!");
+//                break;
+//            }
 
-            System.out.println("Προσπαθήστε να μαντέψετε το μυστικό PIN. Προσπάθεια " + attempts + " από " + MAX_ATTEMPTS);
+            System.out.println("Προσπαθήστε να μαντέψετε το μυστικό PIN. Προσπάθεια " + attempts);
             inputPin = scanner.nextInt();
 
             if (inputPin != SECRET_PIN) {
