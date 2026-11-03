@@ -13,13 +13,22 @@ public class SentinelApp {
         int num = 0;
         int iterations = 0;
 
-        System.out.println("Παρακαλώ εισάγετε έναν ακέραιο (-1 για έξοδο):");
+//        System.out.println("Παρακαλώ εισάγετε έναν ακέραιο (-1 για έξοδο):");
 
-        while ((num = in.nextInt()) != -1) {
-            iterations++;
+        while (true) {
             System.out.println("Παρακαλώ εισάγετε έναν ακέραιο (-1 για έξοδο):");
-            // num = in.nextInt();
+            num = in.nextInt();
+            if (num == -1) {
+                break;
+            }
+            iterations++;
         }
+
+//        while ((num = in.nextInt()) != -1) {
+//            iterations++;
+//            System.out.println("Παρακαλώ εισάγετε έναν ακέραιο (-1 για έξοδο):");
+//            // num = in.nextInt();
+//        }
 
         System.out.println("Ο χρήστης εισήγαγε " + iterations + " ακέραιους πριν δώσει τον sentinel (-1).");
     }
