@@ -7,7 +7,7 @@ import java.util.Scanner;
  * ενός προϊόντος και το ποσοστό έκπτωσης
  * και υπολογίζει την τελική τιμή.
  *
- * Business Rules / Invariants
+ * Business Rules
  *
  * Τι πρέπει να ισχύει
  * price >= 0
