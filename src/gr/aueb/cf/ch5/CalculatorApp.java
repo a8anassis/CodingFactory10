@@ -10,20 +10,19 @@ import java.util.Scanner;
  * χρήστης να επιλέξει 'έξοδο'.
  */
 public class CalculatorApp {
-    static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
         int choice = 0;
         int result = 0;
         int num1 = 0;
         int num2 = 0;
         final int EXIT = 6;
 
-
         while (true) {
 
             printMenu();
-            choice = getOneInt();
+            choice = scanner.nextInt();
 
             if (choice == EXIT) {
                 System.out.println("Έξοδος...");
@@ -36,8 +35,8 @@ public class CalculatorApp {
             }
 
             System.out.println("Δώστε δύο ακέραιους:");
-            num1 = getOneInt();
-            num2 = getOneInt();
+            num1 = scanner.nextInt();
+            num2 = scanner.nextInt();
 
             result = getResultOnChoice(choice, num1, num2);
 
@@ -55,9 +54,9 @@ public class CalculatorApp {
         System.out.println("6. Έξοδος");
     }
 
-    public static int getOneInt() {
-        return scanner.nextInt();
-    }
+//    public static int getOneInt() {
+//        return scanner.nextInt();
+//    }
 
     public static boolean isChoiceValid(int choice) {
         return choice >= 1 && choice <= 5;
