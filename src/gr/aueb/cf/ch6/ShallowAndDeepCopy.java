@@ -7,15 +7,20 @@ public class ShallowAndDeepCopy {
         int[] arr1;
         int[] arr2;
 
-        arr1 = shallowCopy(arr);
-        arr2 = deepCopy(arr);
+        arr1 = getReference(arr);
+        arr2 = deepOrShallowCopy(arr);
     }
 
-    public static int[] shallowCopy(int[] arr) {
+    // Εφόσον ο arr είναι mutable πάντα έχει side effects
+    public static int[] getReference(int[] arr) {
         return arr;             // επιστρέφει την ίδια αναφορά, όχι αντίγραφο
     }
 
-    public static int[] deepCopy(int[] arr) {
+    // Επιστρέφει νέο πίνακα. Το αν είναι shallow copy
+    // ή deep copy εξαρτάται από το είδος των στοιχείων
+    // Είναι ασφαλές αν τα στοιχεία είναι primitives
+    // ή immutable (π.χ. String)
+    public static int[] deepOrShallowCopy(int[] arr) {
         int[] destinationArr = new int[arr.length];
 
         for (int i = 0; i < arr.length; i++) {

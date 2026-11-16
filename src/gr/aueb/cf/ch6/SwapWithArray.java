@@ -31,6 +31,17 @@ public class SwapWithArray {
         arr[1] = tmp;
     }
 
+    public static int[] swap2(int[] arr) {
+        if (arr == null) return new int[0];
+        if (arr.length != 2) return new int[0];
+        int[] arrToReturn = new int[arr.length];
+
+        arrToReturn[0] = arr[1];
+        arrToReturn[1] = arr[0];
+
+        return arrToReturn;
+    }
+
 
 
 
