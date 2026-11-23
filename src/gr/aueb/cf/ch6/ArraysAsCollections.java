@@ -56,7 +56,7 @@ public class ArraysAsCollections {
         if (arr == null) return false;
 
         for (int element : arr) {
-            if (element % 2 == 0) return true;
+            if (element % 2 == 0) return true;  // early exit
         }
         return false;
     }
