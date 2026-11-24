@@ -6,7 +6,9 @@ public class StrIndexOf {
         String s = "Coding Factory";
 
         int positionOfo = s.indexOf("oding");            //  1
-        int positionOfLasto = s.lastIndexOf('o');    // 11
+        int positionOfLasto = s.lastIndexOf('o');       // 11
+        int positionOfx = s.indexOf('x');               // -1
+
     }
 
     // Μέθοδος που επιστρέφει την κατάληξη του ονόματος
