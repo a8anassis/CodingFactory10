@@ -7,7 +7,7 @@ package gr.aueb.cf.review;
 public class MissingElement {
 
     public static void main(String[] args) {
-        int[] arr = {1, 2, 3, 4, 5};
+        int[] arr = {1, 2, 3, 4, 6};
         int missing = 0;
 
         missing = findMissingElement(arr);
@@ -19,8 +19,8 @@ public class MissingElement {
         int actualSum = 0;
         int n = 0;
 
-        n = arr.length;
-        expectedSum = (n + 1) * (n + 2) / 2;
+        n = arr.length + 1;
+        expectedSum = n * (n + 1) / 2;
 
         for (int el : arr) {
             actualSum += el;

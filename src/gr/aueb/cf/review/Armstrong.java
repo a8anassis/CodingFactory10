@@ -23,19 +23,34 @@ public class Armstrong {
         // Πρώτα βρίσκουμε το πλήθος των ψηφίων του αριθμού
         // με διαδοχικές διαιρέσεις με το 10
         temp = num;
-        while (temp != 0) {
+        while (true) {
             numberOfDigits++;
             temp /= 10;   // temp = temp / 10
+            if (temp == 0) {
+                break;
+            }
         }
+//        while (temp != 0) {
+//            numberOfDigits++;
+//            temp /= 10;   // temp = temp / 10
+//        }
 
         // Βρίσκουμε το κάθε ψηφίο με mod 10 και προσθέτουμε
         // στο sum το ψηφίο υψωμένο στη δύναμη του πλήθους των ψηφίων
         temp = num;
-        while (temp != 0) {
+        while (true) {
             digit = temp % 10;
             sum += (int) Math.pow(digit, numberOfDigits);
-            temp /= 10;
+            temp /= 10;   // temp = temp / 10
+            if (temp == 0) {
+                break;
+            }
         }
+//        while (temp != 0) {
+//            digit = temp % 10;
+//            sum += (int) Math.pow(digit, numberOfDigits);
+//            temp /= 10;
+//        }
         return sum == num;
 
     }
